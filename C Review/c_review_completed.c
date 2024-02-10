@@ -20,6 +20,8 @@ By default, gcc and clang are pretty quiet about compilation warnings and errors
 Explicitly using stricter compiler flags is recommended. Here are some recommended defaults:
 -Wall -Wextra -Werror -O2 -std=c99 -pedantic
 
+Can also use weaker compiler flags, for example -w will silence warnings (don't do!)
+
 */
 
 int main() {
@@ -130,6 +132,16 @@ char c2 = (char) u_val;
 printf("Unsigned value: %u\n", u_val);
 printf("Signed value: %d\n", (signed int) u_val);
 printf("Char value: %d\n", c2);
+printf("\n");
+
+// 10000000 00000000 00000000 11111101 = 2147483901
+u_val = 2147483901; 
+c2 = (char) u_val;
+
+printf("Unsigned value: %u\n", u_val);
+printf("Signed value: %d\n", (signed int) u_val);
+printf("Char value: %d\n", c2);
+
 
 unsigned char uc = (unsigned char) c2;  
 unsigned int result = (unsigned int) uc;
@@ -165,6 +177,30 @@ switch (a) {
     break;
 }
 
+// default case not needed
+
+a = 3;
+switch (a) {
+    case 0:
+        printf("Hey, 'a' equals 0!\n");
+        break; // if you don't break, control flow falls over labels
+    case 1:
+        printf("Huh, 'a' equals 1!\n");
+        break;
+    // Be careful - without a "break", execution continues until the
+    // next "break" is reached.
+    case 3:
+        printf("a may equal 3 \n");
+    case 4:
+        printf("a may equal 4\n");
+        break;
+}
+
+
+
+
+
+
 
 // Example of buffer overflow effect
 
@@ -173,6 +209,7 @@ char input[4];
 
 printf("Enter password: ");
 gets(input);
+// fgets(input, sizeof(input), stdin); // secure
 
 // printf("You entered: %s\n\n", input);
 
@@ -190,7 +227,7 @@ if (areEqualStr) {
 // Minimum answer is len 5, technically len 4 because gets will add a null terminator
 // Answer 1: Pas0Pas0
 // Optimal Answer: 00000
-
+// I'm denoting null terminator with 0
 
 return 0;
 

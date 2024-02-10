@@ -1,0 +1,45 @@
+gcc -g fact.c -o fact
+
+Recitation on How to Use LLDB
+Compiling the Program for Debugging:
+First, you need to compile your program with the -g flag to include debugging information.
+gcc -g program.c -o program
+
+Starting LLDB:
+Launch LLDB with your compiled program.
+lldb program
+
+Setting Breakpoints:
+Set a breakpoint at a function or line number. For example, to break at the start of main:
+breakpoint set --name main
+
+Running the Program:
+Start the program within LLDB.
+run
+
+Stepping Through the Program:
+Use commands like step (step into a function) or next (step over a function) to walk through the code.
+
+Inspecting Variables:
+To inspect the value of a variable, use the frame variable command. For example:
+frame variable number
+
+Continuing Execution:
+If you want to continue to the next breakpoint or run to completion, use:
+continue
+
+Setting Conditional Breakpoints:
+You can set breakpoints that only trigger under specific conditions. For instance:
+breakpoint set --name factorial --condition 'n==3'
+
+Verify Breakpoint:
+List all breakpoints to verify their settings.
+breakpoint list
+
+Viewing Backtrace:
+To see the call stack at any breakpoint, use:
+bt
+
+Exiting LLDB:
+To exit the debugger, type:
+quit

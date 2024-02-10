@@ -1,0 +1,25 @@
+gcc c_review_completed.c -w
+breakpoint set --file c_review_completed.c --line 166
+
+The command gcc -g program.c -o program is a command-line instruction used to compile a C program using GCC (GNU Compiler Collection), 
+which is a standard compiler for C (and other languages like C++, Objective-C, Fortran, etc.) in Unix-like environments. 
+Let's break down the command into its components:
+
+gcc: This is the command to invoke the GCC compiler.
+
+-g: This option tells GCC to include debugging information in the compiled program. 
+The debugging information is used by debuggers like GDB or LLDB to provide information about 
+variable names, line numbers, and other important data that helps in debugging the program. 
+Without the -g option, the debugger may not be able to provide detailed information about the source code.
+
+program.c: This is the source file you are compiling. 
+It's a C language file, as denoted by the .c extension.
+
+-o program: The -o option specifies the output file name. 
+In this case, the compiled program will be outputted to a file named program. 
+If you don't use the -o option, GCC by default creates an output file named a.out.
+
+So, in summary, gcc -g program.c -o program compiles the program.c file with debugging information 
+and outputs the compiled executable as program. This command is typically used during the development phase, 
+where debugging might be necessary. For production builds, the -g option might be omitted to reduce the size of 
+the executable and to potentially optimize performance.

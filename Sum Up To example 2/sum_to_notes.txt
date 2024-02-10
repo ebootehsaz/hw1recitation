@@ -1,0 +1,13 @@
+gcc -g sum_to.c -o sum_to
+lldb sum_to 
+r 
+bt 
+frame variable
+
+watchpoint set variable number
+Functionality: This command sets a watchpoint on a variable. 
+A watchpoint is like a breakpoint, but for data rather than code. 
+When the variable's value changes, the debugger stops execution.
+
+expr i = n - 1
+continue
